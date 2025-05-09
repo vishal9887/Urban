@@ -1,5 +1,5 @@
-import React from 'react';
-import { Routes, Route } from 'react-router-dom'; // ✅ only import Routes and Route
+import React, { useEffect } from 'react'; // ✅ Correct import for useEffect
+import { Routes, Route, useLocation } from 'react-router-dom'; // ✅ Correct import for react-router-dom
 import Home from './pages/Home';
 import About from './pages/About';
 import Services from './pages/Services';
@@ -8,8 +8,17 @@ import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import Blog from './pages/Blog';
 import Pricing from './pages/Pricing';
+import '@fontsource/poppins';
+import AOS from "aos";
+import "aos/dist/aos.css"
 
 function App() {
+  const location = useLocation(); // ✅ get current route
+
+  useEffect(() => {
+    AOS.init({ duration: 1200 });
+  }, []); // Ensure AOS.init runs only once
+
   return (
     <>
       <Navbar />
@@ -19,10 +28,11 @@ function App() {
         <Route path="/services" element={<Services />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/blog" element={<Blog />} />
-        <Route path="/pricing" element={<Pricing/>} />
-       
+        <Route path="/pricing" element={<Pricing />} />
       </Routes>
-      <Footer/>
+
+      {/* Conditionally render Footer */}
+     {location.pathname !== '/' && <Footer />} 
     </>
   );
 }

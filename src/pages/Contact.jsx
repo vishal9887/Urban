@@ -12,32 +12,34 @@ const formVariants = {
 
 const Contact = () => {
   return (
-    <motion.section
+    <div className='bg-[#F1EFEC]'>
+      <motion.section
       id="contact"
-      className="py-20 px-4 bg-black text-white text-center"
+      className="py-20 px-4 bg-[#F1EFEC] text-white text-center"
       initial={{ opacity: 0, y: 60 }}
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.8 }}
       viewport={{ once: true }}
     >
       <motion.h2
-        className="text-4xl font-bold mb-4"
+        className="text-4xl text-black font-bold mb-4"
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         transition={{ duration: 1 }}
       >
         Contact Us
       </motion.h2>
+
       <motion.p
-        className="mb-6"
+        className="mb-6 text-black"
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         transition={{ delay: 0.2, duration: 0.6 }}
       >
-        Have a project in mind? Let's talk!
+        Pricing for our services is tailored to each project. Please contact us to discuss your specific needs and receive a customized quote.
       </motion.p>
 
-      <form className="max-w-xl mx-auto grid grid-cols-1 gap-4">
+      <form className="max-w-xl mx-auto grid grid-cols-1 text-black gap-4">
         {['Your Name', 'Your Email'].map((placeholder, i) => (
           <motion.input
             key={i}
@@ -71,7 +73,19 @@ const Contact = () => {
           Send Message
         </motion.button>
       </form>
+
+      {/* DISCLAIMER LINE */}
+      <motion.p
+        className="mt-10 text-sm text-black italic"
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        transition={{ delay: 1, duration: 0.8 }}
+        viewport={{ once: true }}
+      >
+        DISCLAIMER: Contacting us may cause sudden clarity.
+      </motion.p>
     </motion.section>
+    </div>
   );
 };
 
