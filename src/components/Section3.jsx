@@ -40,13 +40,13 @@ export default function Section3() {
   return (
     <div
       ref={ref}
-      className="transition-opacity min-h-screen text-center duration-1000 ease-out"
+      className=" min-h-screen text-center text-white bg-[#35378D] rounded-[170px] ease-out w-[70%] mx-auto bg-opacity-50 py-1 bg-chat-gradient backdrop-blur-3xl"
       data-aos="fade-up"
     >
       {/* Heading */}
-      <div className="text-7xl font-bold mb-6">
-        <div className="flex justify-center space-x-6">
-          {headingWords.map((word, i) => (
+      <div className="text-7xl font-bold mt-[6%] ml-[15%]">
+        <div className="flex justify-start space-x-6">
+          {headingWords.map((word, i) => ( 
             <motion.span
               key={i}
               className="inline-block"
@@ -62,11 +62,11 @@ export default function Section3() {
       </div>
 
       {/* Subheading */}
-      <div className="text-4xl my-6 font-semibold mb-12 text-left w-[70%] mx-auto">
+      <div className="text-4xl my-4 font-semibold mb-12 text-left w-[70%] mx-auto">
         {subheadingText.map((text, i) => (
           <motion.div
             key={i}
-            className="my-4"
+            className="my-2"
             custom={i + headingWords.length}
             initial="hidden"
             animate={controls}
@@ -78,11 +78,11 @@ export default function Section3() {
       </div>
 
       {/* Paragraph Text */}
-      <div className="mx-auto text-left my-10 w-[70%]">
+      <div className="mx-auto text-left mt-[-3%] w-[70%] mb-[7%]">
         {paragraphText.map((text, i) => (
           <motion.p
             key={i}
-            className="text-3xl font-medium"
+            className="text-4xl font-semibold my-2"
             custom={i + headingWords.length + subheadingText.length}
             initial="hidden"
             animate={controls}

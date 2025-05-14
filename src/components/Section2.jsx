@@ -37,7 +37,10 @@ export default function Section2() {
       ref={ref}
       className="bg-[#B488F1] text-white flex items-center justify-center min-h-screen scroll-snap-start w-full transition-opacity duration-1000 ease-out"
     >
-      <h1 className="text-7xl font-bold leading-tight max-w-[85%] mx-auto my-8 text-center flex flex-wrap justify-center">
+      <h1
+        className="text-7xl font-bold leading-tighter max-w-[85%] mx-auto my-8 text-center flex flex-wrap justify-center"
+      >
+        <span className='tracking-[5px] space-x-6'>
         {words.map((word, i) => (
           <motion.span
             key={i}
@@ -50,6 +53,7 @@ export default function Section2() {
             {word}
           </motion.span>
         ))}
+        </span>
       </h1>
     </section>
   );

@@ -32,7 +32,7 @@ export default function Section5() {
   return (
     <div
       ref={ref}
-      className="transition-opacity min-h-[70vh] mt-44 duration-1000 ease-out"
+      className="transition-opacity min-h-[70vh] mt-44 duration-1000 ease-out  bg-[#35378D] rounded-[170px] w-[70%] mx-auto bg-opacity-50 py-1 bg-chat-gradient backdrop-blur-3xl"
       data-aos="fade-up"
     >
       {/* Heading */}

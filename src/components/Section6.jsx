@@ -34,10 +34,10 @@ export default function Section6() {
   return (
     <div
       ref={ref}
-      className="transition-opacity duration-1000 ease-out"
+      className="transition-opacity duration-1000 ease-out  bg-[#35378D] rounded-[170px] w-[70%] mx-auto bg-opacity-50 py-1 bg-chat-gradient backdrop-blur-3xl"
       data-aos="fade-up"
     >
-      <div className="min-h-[60vh] ease-out mt-44">
+      <div className="min-h-[60vh] ease-out mt-12">
         {/* Heading */}
         <motion.h1
           className="font-bold text-7xl text-center mt-14 mb-9"

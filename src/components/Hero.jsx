@@ -167,7 +167,7 @@ const Hero = () => {
       </section>
 
       {/* Footer */}
-      <div className="pt-16">
+      <div className="">
         <Footer />
       </div>
     </div>

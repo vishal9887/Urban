@@ -1,5 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 
+import Card from '../components/Card';
+
 
 
 const ThreeDCarousel = () => {
@@ -151,6 +153,9 @@ const ThreeDCarousel = () => {
       </div>
       <div>
         
+      </div>
+      <div>
+     
       </div>
     </div>
   );

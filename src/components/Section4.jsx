@@ -34,7 +34,7 @@ export default function Section4() {
   return (
     <div
       ref={ref}
-      className="min-h-[90vh] transition-opacity duration-1000 ease-out"
+      className="min-h-[80vh] mt-[8%] transition-opacity duration-1000 ease-out bg-[#35378D] rounded-[170px] w-[70%] mx-auto bg-opacity-50 py-1 bg-chat-gradient backdrop-blur-3xl"
       data-aos="fade-up"
     >
       {/* Heading */}
@@ -50,7 +50,7 @@ export default function Section4() {
       </h1>
 
       {/* Paragraph Text */}
-      <div className="w-[70%] font-medium text-3xl mx-auto my-10">
+      <div className="w-[70%] font-medium text-3xl mx-auto mt-10 ">
         {paragraphText.map((text, i) => (
           <motion.p
             key={i}
