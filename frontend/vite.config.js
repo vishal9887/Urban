@@ -12,7 +12,7 @@ export default defineConfig({
   plugins: [react()],
   server: {
     proxy: {
-      '/api': 'http://localhost:5000',
+      '/api': 'https://urban-u3jp.onrender.com',
     },
   },
 });
