@@ -6,7 +6,7 @@ const FAQs = () => {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    fetch("http://localhost:5000/api/faqs")  // Your backend FAQ API endpoint
+    fetch("/api/faqs")  // Your backend FAQ API endpoint
       .then((res) => {
         if (!res.ok) throw new Error("Failed to fetch FAQs");
         return res.json();
