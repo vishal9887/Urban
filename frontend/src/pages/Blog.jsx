@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react';
-import { fetchBlogs } from '../utils/api';
 
 const Blog = () => {
   const [blogs, setBlogs] = useState([]);
@@ -8,8 +7,15 @@ const Blog = () => {
 
   const fetchData = async () => {
     setLoading(true);
-    const data = await fetchBlogs(category ? { category } : {});
-    setBlogs(data);
+    try {
+      const res = await fetch(
+        `https://urban-u3jp.onrender.com/api/blogs${category ? `?category=${category}` : ''}`
+      );
+      const data = await res.json();
+      setBlogs(data);
+    } catch (err) {
+      console.error('Failed to fetch blogs:', err);
+    }
     setLoading(false);
   };
 
@@ -21,7 +27,6 @@ const Blog = () => {
     <div className="min-h-screen py-10 px-6 bg-gray-50 dark:bg-gray-900">
       <h1 className="text-4xl font-bold mb-8 text-center text-gray-800 dark:text-white">Our Blogs</h1>
 
-      {/* Filter by Category */}
       <div className="flex justify-center mb-6">
         <select
           className="p-2 border rounded"
@@ -45,10 +50,16 @@ const Blog = () => {
               key={blog._id}
               className="bg-white dark:bg-gray-800 p-5 rounded-lg shadow hover:shadow-lg transition"
             >
-              <img src={blog.coverImage} alt={blog.title} className="w-full h-48 object-cover rounded-md mb-4" />
+              <img
+                src={blog.coverImage}
+                alt={blog.title}
+                className="w-full h-48 object-cover rounded-md mb-4"
+              />
               <h2 className="text-xl font-semibold mb-2 text-gray-800 dark:text-white">{blog.title}</h2>
               <p className="text-sm text-gray-500 dark:text-gray-400 mb-2">By {blog.author}</p>
-              <p className="text-gray-700 dark:text-gray-300">{blog.content.substring(0, 100)}...</p>
+              <p className="text-gray-700 dark:text-gray-300">
+                {blog.content?.substring(0, 100)}...
+              </p>
               <p className="text-xs mt-2 text-blue-600 dark:text-blue-400">{blog.category}</p>
             </div>
           ))}
