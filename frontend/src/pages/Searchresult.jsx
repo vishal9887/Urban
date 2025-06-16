@@ -14,6 +14,8 @@ const Searchresult = () => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
 
+  const API_BASE = import.meta.env.VITE_BACKEND_URL || 'https://urban-u3jp.onrender.com';
+
   useEffect(() => {
     if (!q) {
       setResults(null);
@@ -25,7 +27,7 @@ const Searchresult = () => {
       setError(null);
 
       try {
-        const res = await axios.get(`/api/search?q=${encodeURIComponent(q)}`);
+        const res = await axios.get(`${API_BASE}/api/search?q=${encodeURIComponent(q)}`);
         setResults(res.data);
       } catch (err) {
         setError("Failed to fetch results.");
@@ -46,8 +48,7 @@ const Searchresult = () => {
 
       {!loading && results && (
         <>
-          {/* Blogs */}
-          {results.blogs && results.blogs.length > 0 && (
+          {results.blogs?.length > 0 && (
             <section className="mb-6">
               <h2 className="text-xl font-semibold mb-2">Blogs</h2>
               <ul className="list-disc list-inside space-y-1">
@@ -62,8 +63,7 @@ const Searchresult = () => {
             </section>
           )}
 
-          {/* FAQs */}
-          {results.faqs && results.faqs.length > 0 && (
+          {results.faqs?.length > 0 && (
             <section className="mb-6">
               <h2 className="text-xl font-semibold mb-2">FAQs</h2>
               <ul className="list-disc list-inside space-y-1">
@@ -77,8 +77,7 @@ const Searchresult = () => {
             </section>
           )}
 
-          {/* No results */}
-          {results.blogs.length === 0 && results.faqs.length === 0 && (
+          {results.blogs?.length === 0 && results.faqs?.length === 0 && (
             <p>No results found.</p>
           )}
         </>
