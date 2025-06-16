@@ -6,7 +6,7 @@ const FAQs = () => {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    fetch("/api/faqs")  // Your backend FAQ API endpoint
+   fetch(`${import.meta.env.VITE_BACKEND_URL}/api/faqs`)
       .then((res) => {
         if (!res.ok) throw new Error("Failed to fetch FAQs");
         return res.json();
