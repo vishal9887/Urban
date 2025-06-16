@@ -7,6 +7,7 @@ import WAVES from 'vanta/dist/vanta.waves.min';
 import { motion, useAnimation } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import Section2 from './Section2';
+import branding from '../assets/branding.png'
 
 // Sentence for Section 2
 const sentence = `your vision becomes our mission. With emotional ownership and quiet precision, we help you build brands, systems, and stories that perform — and last.`;
@@ -119,36 +120,38 @@ const Hero = () => {
       <Section2/>
 
       {/* Section 3 */}
-      <section
-        id="section3"
-        className=" text-black flex items-center justify-start min-h-screen scroll-snap-start w-full transition-opacity duration-1000 ease-out"
-        data-aos="fade-up"
-      >
-        <div className="flex flex-col bg-[#F3F3E9] px-6 w-full">
-          <div className="my-12">
-            <h2 className="text-8xl font-bold mb-4">
-              BUILDING BRANDS <br /> <span className="text-black">WITH INTENTION</span>
-            </h2>
-          </div>
-          <div className="flex flex-col md:flex-row">
-            <div className="md:w-1/2">
-              <p className="text-3xl text-gray-700 mb-4 px-4">
-                We step in not just with strategy decks, but with intention. Not just with plans, but with presence. Not just to execute, but to evolve your business with you — quietly, mindfully, and without pressure. Because when you win, we win. It’s personal like that.
-              </p>
-              <button className="bg-gray-200 text-gray-800 hover:bg-gray-300 text-lg font-semibold mt-4 px-6 py-3 rounded-full">
-                Know More
-              </button>
-            </div>
-            <div className="md:w-1/2">
-              <img
-                src="https://a-us.storyblok.com/f/1017006/1200x1400/dc71890964/humaanpeople.jpg/m/1676x2042/filters:quality(80)"
-                alt="People"
-                className="w-full h-auto rounded-lg object-cover"
-              />
-            </div>
-          </div>
-        </div>
-      </section>
+     {/* Section 3 */}
+<section
+  id="section3"
+  className="text-black flex items-center justify-center min-h-screen scroll-snap-start w-full transition-opacity duration-1000 ease-out"
+  data-aos="fade-up"
+>
+  <div className="flex flex-col md:flex-row bg-[#F3F3E9] w-full max-w-7xl mx-auto p-6 md:p-12 rounded-lg gap-8">
+    
+    {/* Text Content */}
+    <div className="md:w-1/2 flex flex-col justify-center">
+      <h2 className="text-4xl lg:text-6xl font-bold mb-6 leading-tight">
+        BUILDING BRANDS <br />
+        <span className="text-black">WITH INTENTION</span>
+      </h2>
+      <p className="text-lg lg:text-2xl text-gray-700 mb-6">
+        We step in not just with strategy decks, but with intention. Not just with plans, but with presence. Not just to execute, but to evolve your business with you — quietly, mindfully, and without pressure. Because when you win, we win. It’s personal like that.
+      </p>
+      <button className="bg-gray-200 text-gray-800 hover:bg-gray-300 text-md font-semibold px-6 py-3 rounded-full w-fit">
+        Know More
+      </button>
+    </div>
+
+    {/* Image */}
+    <div className="md:w-1/2">
+      <img
+        src={branding}
+        alt="branding"
+        className="w-full h-auto rounded-lg object-cover"
+      />
+    </div>
+  </div>
+</section>
 
       {/* Section 4 */}
       <section

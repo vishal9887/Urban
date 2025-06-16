@@ -90,9 +90,13 @@
 // };
 
 // export default Contact;
-
+ 
 // File: src/pages/Help.jsx
+
 import { useNavigate } from 'react-router-dom';
+import userguide from '../assets/userguide.png';
+import faq from '../assets/Faq.png';
+import contact from '../assets/Contact.png';
 
 const Help = () => {
   const navigate = useNavigate();
@@ -102,35 +106,46 @@ const Help = () => {
       title: 'User Guide',
       description: 'Learn how to get started and use our services effectively.',
       route: '/help/user-guide',
+      image: userguide,
     },
     {
       title: 'FAQs',
       description: 'Find answers to frequently asked questions.',
       route: '/help/faqs',
+      image: faq,
     },
     {
       title: 'Contact',
       description: 'Reach out for general, service, or internship queries.',
       route: '/help/contact',
+      image: contact,
     },
   ];
 
   return (
     <div className="min-h-screen bg-gray-50 dark:bg-gray-900 py-16 px-6">
-      <h1 className="text-3xl md:text-4xl font-bold text-center text-gray-800 dark:text-white mb-10">
+      <h1 className="text-4xl font-bold text-center text-gray-800 dark:text-white mb-12">
         Help Center
       </h1>
-      <div className="max-w-4xl mx-auto grid md:grid-cols-3 gap-6">
+
+      <div className="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
         {helpOptions.map((option) => (
           <div
             key={option.title}
             onClick={() => navigate(option.route)}
-            className="bg-white dark:bg-gray-800 p-6 rounded-xl shadow hover:shadow-lg cursor-pointer transition-all duration-300"
+            className="bg-white dark:bg-gray-800 p-6 rounded-2xl shadow-md hover:shadow-xl cursor-pointer transform hover:-translate-y-1 transition-all duration-300"
           >
-            <h2 className="text-xl font-semibold text-gray-700 dark:text-gray-200 mb-2">
+            <img
+              src={option.image}
+              alt={option.title}
+              className="w-16 h-16 mx-auto mb-4 object-contain"
+            />
+            <h2 className="text-xl font-semibold text-center text-gray-800 dark:text-white mb-2">
               {option.title}
             </h2>
-            <p className="text-gray-600 dark:text-gray-400">{option.description}</p>
+            <p className="text-sm text-center text-gray-600 dark:text-gray-400">
+              {option.description}
+            </p>
           </div>
         ))}
       </div>
@@ -139,4 +154,3 @@ const Help = () => {
 };
 
 export default Help;
-

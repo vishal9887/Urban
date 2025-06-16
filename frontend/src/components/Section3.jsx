@@ -1,8 +1,8 @@
 import { useEffect } from 'react';
 import { motion, useAnimation } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
+import whywearehere from '../assets/whywearehere.png';
 
-// Split text into words to apply the animation
 const headingWords = ["WHY", "WE'RE", "HERE"];
 const subheadingText = [
   "Most businesses aren’t short on tools.",
@@ -22,8 +22,8 @@ const wordVariants = {
     opacity: 1,
     x: 0,
     transition: {
-      delay: i * 0.15, // Increased delay for each word to slow down the animation
-      duration: 0.4,    // Slowed down duration for word animation
+      delay: i * 0.15,
+      duration: 0.4,
       ease: 'easeOut',
     },
   }),
@@ -40,57 +40,71 @@ export default function Section3() {
   return (
     <div
       ref={ref}
-      className=" min-h-screen text-center text-white bg-[#35378D] rounded-[170px] ease-out w-[70%] mx-auto bg-opacity-50 py-1 bg-chat-gradient backdrop-blur-3xl"
-      data-aos="fade-up"
+      className="min-h-screen py-16 px-4 md:px-12 bg-[#35378D] text-white rounded-[60px] md:rounded-[150px] w-[90%] mx-auto shadow-xl backdrop-blur-2xl bg-opacity-70"
     >
-      {/* Heading */}
-      <div className="text-7xl font-bold mt-[6%] ml-[15%]">
-        <div className="flex justify-start space-x-6">
-          {headingWords.map((word, i) => ( 
-            <motion.span
-              key={i}
-              className="inline-block"
-              custom={i}
-              initial="hidden"
-              animate={controls}
-              variants={wordVariants}
-            >
-              {word}
-            </motion.span>
-          ))}
+      <div className="flex flex-col md:flex-row items-center justify-between gap-10">
+        {/* Image Section */}
+        <div className="w-full md:w-1/2 flex justify-center">
+          <motion.img
+            src={whywearehere}
+            alt="Why we are here"
+            className="w-full max-w-xs md:max-w-sm rounded-2xl shadow-lg"
+            initial={{ opacity: 0, scale: 0.9 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.8, ease: 'easeOut' }}
+          />
         </div>
-      </div>
 
-      {/* Subheading */}
-      <div className="text-4xl my-4 font-semibold mb-12 text-left w-[70%] mx-auto">
-        {subheadingText.map((text, i) => (
-          <motion.div
-            key={i}
-            className="my-2"
-            custom={i + headingWords.length}
-            initial="hidden"
-            animate={controls}
-            variants={wordVariants}
-          >
-            {text}
-          </motion.div>
-        ))}
-      </div>
+        {/* Text Section */}
+        <div className="w-full md:w-1/2 text-left">
+          {/* Heading */}
+          <div className="text-5xl md:text-6xl font-extrabold mb-6 tracking-wide leading-tight">
+            <div className="flex flex-wrap gap-4">
+              {headingWords.map((word, i) => (
+                <motion.span
+                  key={i}
+                  className="inline-block"
+                  custom={i}
+                  initial="hidden"
+                  animate={controls}
+                  variants={wordVariants}
+                >
+                  {word}
+                </motion.span>
+              ))}
+            </div>
+          </div>
 
-      {/* Paragraph Text */}
-      <div className="mx-auto text-left mt-[-3%] w-[70%] mb-[7%]">
-        {paragraphText.map((text, i) => (
-          <motion.p
-            key={i}
-            className="text-4xl font-semibold my-2"
-            custom={i + headingWords.length + subheadingText.length}
-            initial="hidden"
-            animate={controls}
-            variants={wordVariants}
-          >
-            {text}
-          </motion.p>
-        ))}
+          {/* Subheading */}
+          <div className="text-2xl md:text-3xl font-semibold mb-6 space-y-2">
+            {subheadingText.map((text, i) => (
+              <motion.div
+                key={i}
+                custom={i + headingWords.length}
+                initial="hidden"
+                animate={controls}
+                variants={wordVariants}
+              >
+                {text}
+              </motion.div>
+            ))}
+          </div>
+
+          {/* Paragraph */}
+          <div className="text-lg md:text-xl font-medium space-y-2">
+            {paragraphText.map((text, i) => (
+              <motion.p
+                key={i}
+                custom={i + headingWords.length + subheadingText.length}
+                initial="hidden"
+                animate={controls}
+                variants={wordVariants}
+              >
+                {text}
+              </motion.p>
+            ))}
+          </div>
+        </div>
       </div>
     </div>
   );

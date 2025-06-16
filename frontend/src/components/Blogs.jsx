@@ -1,8 +1,8 @@
 import React, { useState, useRef, useEffect } from 'react';
-
-import Card from './Card';
-
-
+import guidance from '../assets/guidance.png';
+import approach from '../assets/approach.png';
+import hustle from '../assets/hustle.png';
+import delivered from '../assets/delivered.png'
 
 const ThreeDCarousel = () => {
   const [paused, setPaused] = useState(false);
@@ -14,27 +14,43 @@ const ThreeDCarousel = () => {
   const slides = [
     {
       id: 1,
-      src: "https://www.w3schools.com/w3css/img_lights.jpg",
-      title: "Galactic Horizon",
-      description: "A stunning visual of a galactic horizon, where stars collide to create new celestial bodies.",
+      title: "Human Before Hustle",
+      description: `
+        Behind every strategy, there’s a human — often overwhelmed, juggling decisions, and running on little rest.
+        We don’t show up to add to your pressure. We’re here to lighten the load.
+        With calm clarity and real compassion, we make business feel less like burnout — and more like belonging.
+      `,
+      src: hustle,
     },
     {
       id: 2,
-      src: "https://images.unsplash.com/photo-1479409286066-c0b2f4f4a332",
-      title: "Star Field",
-      description: "A deep view into the star field, showing the beauty of thousands of stars scattered across space.",
+      title: "Genuine Guidance, Not Gatekeeping",
+      description: `
+        We believe knowledge is power — not a power play.
+        No jargon, no ego. Just clear, actionable insight that makes sense.
+        From funnels to conversions, we walk you through the why, the how, and the impact — so you grow with confidence, not confusion.
+      `,
+      src: guidance,
     },
     {
       id: 3,
-      src: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRoBuMvSuYezLE9rwI-zOJeIOmcIGfDPqOvFA&s",
-      title: "Digital Cosmos",
-      description: "A futuristic depiction of space, blending digital art with the beauty of the universe.",
+      title: "Emotional Ownership",
+      description: `
+        Your vision isn’t just another deliverable — we carry it like it’s our own.
+        While you lead clients and life, we’re in the background strengthening your systems with care, foresight, and loyalty.
+        It’s not outsourcing. It’s co-building your dream.
+      `,
+      src: approach,
     },
     {
       id: 4,
-      src: "https://images.unsplash.com/photo-1446776709462-d6b525c57bd3",
-      title: "Galactic Wonders",
-      description: "A breathtaking view of a galaxy, showing the immense beauty and complexity of the universe.",
+      title: "Human-Delivered in an AI World",
+      description: `
+        In a sea of AI templates and cookie-cutter content, standing out means staying human.
+        Our strategies don’t come off an assembly line — they’re shaped with intuition, context, and care.
+        Because what works for everyone often connects with no one.
+      `,
+      src: delivered,
     },
   ];
 
@@ -56,7 +72,7 @@ const ThreeDCarousel = () => {
   }, [paused]);
 
   return (
-    <div className="min-h-screen text-black pb-32">
+    <div className="min-h-screen text-black dark:text-white pb-32 bg-gradient-to-br from-[#0F172A] to-[#1E293B] ">
       <h1 className="font-bold text-5xl text-center mt-10 mb-16" data-aos="fade-up">
         CORE VALUES
       </h1>
@@ -97,7 +113,7 @@ const ThreeDCarousel = () => {
                   />
                   {!selectedCard && (
                     <div className="absolute bottom-[-100px] w-full opacity-0 group-hover:opacity-100 group-hover:bottom-0 transition-all duration-300">
-                      <div className="bg-white text-black rounded-lg shadow-lg p-4 text-sm">
+                      <div className="bg-white dark:bg-gray-800 text-black dark:text-white rounded-lg shadow-lg p-4 text-sm">
                         <h3 className="font-bold text-lg">{slide.title}</h3>
                         <p>{slide.description}</p>
                       </div>
@@ -112,18 +128,18 @@ const ThreeDCarousel = () => {
 
       {/* Selected Card Content Below Carousel */}
       {selectedCard && (
-        <div className="mt-10 mx-auto w-[90%] max-w-md text-center bg-white text-black p-6 rounded-lg shadow-lg">
+        <div className="mt-10 mx-auto w-[90%] max-w-2xl text-center bg-white dark:bg-gray-800 text-black dark:text-white p-6 rounded-lg shadow-lg">
           <h2 className="text-2xl font-bold">
             {slides.find((slide) => slide.id === selectedCard).title}
           </h2>
-          <p className="mt-2 text-sm">
+          <p className="mt-2 text-md whitespace-pre-line">
             {slides.find((slide) => slide.id === selectedCard).description}
           </p>
           <button
-            className="mt-4 px-4 py-2 bg-black text-white rounded"
+            className="mt-4 px-6 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg transition"
             onClick={() => {
               setSelectedCard(null);
-              setPaused(false); // Resume rotation
+              setPaused(false);
             }}
           >
             Close
@@ -137,33 +153,16 @@ const ThreeDCarousel = () => {
           box-sizing: border-box;
         }
 
-        body {
-          margin: 0;
-          background-image: url('https://images.unsplash.com/photo-1446776709462-d6b525c57bd3');
-          background-attachment: fixed;
-          background-size: cover;
-        }
-
         .transform-style-preserve-3d {
           transform-style: preserve-3d;
         }
+
+        body {
+          background-color: #0F172A;
+        }
       `}</style>
-      <div>
-     
-      </div>
-      <div>
-        
-      </div>
-      <div>
-     
-      </div>
     </div>
   );
-  
 };
-
-
-
-
 
 export default ThreeDCarousel;
